@@ -1,19 +1,23 @@
-import { Button } from "@workspace/ui/components/button"
+import { Projects, Skillset, Badges, About, FloatingMenu, Navbar, Copyright, Home } from "./pages/Controller"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+
 
 export function App() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="text-muted-foreground font-mono text-xs">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects /> } />
+          <Route path="/skillset" element={<Skillset />} />
+          <Route path="/badges" element={<Badges />} />
+          <Route path="/about-me" element={<About />} />
+          <Route path="/contact" element={<></>} />
+        </Routes>
+      </BrowserRouter>
+      <FloatingMenu></FloatingMenu>
+      <Copyright></Copyright>
+    </>
   )
 }
